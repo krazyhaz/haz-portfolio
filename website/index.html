@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HAZ — Restricted Staff Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- FONTS -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ACCESS GATE -->
+<div id="gate">
+  <div id="terminal">
+    <p>CLEARANCE REQUIRED</p>
+    <p>LEVEL: EXECUTIVE</p>
+    <input id="pass" type="password" placeholder="ACCESS KEY">
+    <button onclick="unlock()">VERIFY</button>
+  </div>
+</div>
+
+<div id="granted">ACCESS GRANTED</div>
+
+<div id="scrollbar"></div>
+<div id="particles"></div>
+<div id="grain"></div>
+
+<!-- HERO -->
+<section class="hero visible">
+  <h1>HAZ</h1>
+  <div id="typed"></div>
+  <a class="btn" href="https://discord.com/users/YOUR_ID" target="_blank">CONTACT</a>
+</section>
+
+<!-- STAFF EXPERIENCE -->
+<section>
+  <h2>STAFF EXPERIENCE</h2>
+  <div class="cards">
+    <div class="card" onclick="openModal('ethereal')">Ethereal — Assistant Co-Owner</div>
+    <div class="card" onclick="openModal('talk')">/talk — Administrator</div>
+    <div class="card" onclick="openModal('nukiyoz')">/nukiyoz — Moderator</div>
+  </div>
+</section>
+
+<!-- METRICS -->
+<section>
+  <h2>METRICS</h2>
+  <div class="metrics">
+    <div class="metric"><span data-target="3">0</span><p>Servers</p></div>
+    <div class="metric"><span data-target="51000">0</span><p>Members</p></div>
+    <div class="metric"><span data-target="1">0</span><p>Years</p></div>
+  </div>
+</section>
+
+<!-- MODALS -->
+<div class="modal" id="ethereal">
+  <div class="modalContent">
+    <h3>Ethereal</h3>
+    <p>Assistant Co-Owner</p>
+    <p>• Staff leadership<br>• Escalation handling<br>• Server structure<br>• Long-term stability</p>
+    <div class="close" onclick="closeModal()">CLOSE</div>
+  </div>
+</div>
+
+<div class="modal" id="talk">
+  <div class="modalContent">
+    <h3>/talk</h3>
+    <p>Administrator</p>
+    <p>• Daily operations<br>• Moderation coordination<br>• Rule enforcement</p>
+    <div class="close" onclick="closeModal()">CLOSE</div>
+  </div>
+</div>
+
+<div class="modal" id="nukiyoz">
+  <div class="modalContent">
+    <h3>/nukiyoz</h3>
+    <p>Moderator</p>
+    <p>• Staff oversight<br>• Policy enforcement<br>• Community management</p>
+    <div class="close" onclick="closeModal()">CLOSE</div>
+  </div>
+</div>
+
+<!-- JS -->
+<script src="script.js"></script>
+</body>
+</html>
