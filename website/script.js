@@ -1,8 +1,7 @@
 /* ACCESS */
 function unlock(){
   const box=document.getElementById("terminal");
-  const pass=document.getElementById("pass").value;
-  if(pass==="haz"){
+  if(document.getElementById("pass").value==="haz"){
     document.getElementById("granted").style.display="flex";
     setTimeout(()=>{
       document.getElementById("granted").style.display="none";
@@ -26,26 +25,17 @@ for(let i=0;i<60;i++){
 }
 
 /* MODALS */
-function openModal(id){
-  const modal=document.getElementById(id);
-  modal.style.display="flex";
-  modal.classList.add("show");
-}
-function closeModal(){
-  document.querySelectorAll(".modal").forEach(m=>{
-    m.classList.remove("show");
-    setTimeout(()=>m.style.display="none",400);
-  });
-}
+function openModal(id){document.getElementById(id).style.display="flex"}
+function closeModal(){document.querySelectorAll(".modal").forEach(m=>m.style.display="none")}
 
-/* SCROLL ANIMATION */
+/* SECTIONS ON SCROLL */
 const secs=document.querySelectorAll("section");
 const obs=new IntersectionObserver(e=>{
   e.forEach(v=>v.isIntersecting&&v.target.classList.add("visible"))
 },{threshold:.2});
 secs.forEach(s=>obs.observe(s));
 
-/* METRICS COUNTER */
+/* COUNTERS */
 document.querySelectorAll("[data-target]").forEach(el=>{
   let o=new IntersectionObserver(e=>{
     if(e[0].isIntersecting){
@@ -60,7 +50,7 @@ document.querySelectorAll("[data-target]").forEach(el=>{
   o.observe(el);
 });
 
-/* TYPE EFFECT */
+/* TYPED TEXT */
 const txt="Discord Staff and Bot Developer";
 let i=0;
 setInterval(()=>{if(i<=txt.length)typed.textContent=txt.slice(0,i++)},90);
