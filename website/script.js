@@ -1,13 +1,8 @@
-/* INVITE TOKEN */
-const params = new URLSearchParams(window.location.search);
-if(params.get("token")==="EXEC"){
-  document.getElementById("gate").style.display="none";
-}
-
 /* ACCESS */
 function unlock(){
   const box=document.getElementById("terminal");
-  if(document.getElementById("pass").value==="haz"){
+  const pass=document.getElementById("pass").value;
+  if(pass==="haz"){
     document.getElementById("granted").style.display="flex";
     setTimeout(()=>{
       document.getElementById("granted").style.display="none";
@@ -31,8 +26,17 @@ for(let i=0;i<60;i++){
 }
 
 /* MODALS */
-function openModal(id){document.getElementById(id).style.display="flex"}
-function closeModal(){document.querySelectorAll(".modal").forEach(m=>m.style.display="none")}
+function openModal(id){
+  const modal=document.getElementById(id);
+  modal.style.display="flex";
+  modal.classList.add("show");
+}
+function closeModal(){
+  document.querySelectorAll(".modal").forEach(m=>{
+    m.classList.remove("show");
+    setTimeout(()=>m.style.display="none",400);
+  });
+}
 
 /* SCROLL ANIMATION */
 const secs=document.querySelectorAll("section");
@@ -41,7 +45,7 @@ const obs=new IntersectionObserver(e=>{
 },{threshold:.2});
 secs.forEach(s=>obs.observe(s));
 
-/* COUNTERS */
+/* METRICS COUNTER */
 document.querySelectorAll("[data-target]").forEach(el=>{
   let o=new IntersectionObserver(e=>{
     if(e[0].isIntersecting){
@@ -56,15 +60,13 @@ document.querySelectorAll("[data-target]").forEach(el=>{
   o.observe(el);
 });
 
-/* TYPE */
-const typed=document.getElementById("typed");
+/* TYPE EFFECT */
 const txt="Discord Staff and Bot Developer";
 let i=0;
 setInterval(()=>{if(i<=txt.length)typed.textContent=txt.slice(0,i++)},90);
 
-/* SCROLL BAR */
+/* SCROLLBAR */
 window.addEventListener("scroll",()=>{
   let h=document.documentElement;
-  document.getElementById("scrollbar").style.width=
-    (h.scrollTop/(h.scrollHeight-h.clientHeight))*100+"%";
+  scrollbar.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100+"%";
 });
